@@ -15,7 +15,7 @@ export default function Authentication() {
     };
 
     return (
-        <section className={`auth-container ${isRegisterActive ? 'right-panel-active' : ''}`} id="main">
+        <section className={`auth-container ${isRegisterActive ? 'right-panel-active' : ''} min-h-screen`} id="main">
             <section className="register">
                 <RegisterForm />
             </section>

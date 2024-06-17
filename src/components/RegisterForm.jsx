@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import apiUrl from "../config/config";
-
+import { useNavigate } from "react-router-dom";
+import axios from "../api/apiConfig"
 export default function RegisterPage() {
 
+    const navigate = useNavigate()
     const [fullname, setFullname] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -10,25 +12,20 @@ export default function RegisterPage() {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        console.log(fullname, username, password, email)
-
-        const response = await fetch(`${apiUrl}/auth/register/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "username": username,
-                "password": password,
-                "email": email,
-                "fullname": fullname,
-                "user_id" : ""
-            })
+        
+        const response = await axios.post('/api/auth/register',{
+            username: username,
+            password: password,
+            email: email,
+            fullname: fullname,
+            user_id : ""
         })
-        const data = await response.json()
 
-        if (response.ok) {
-
+        
+        
+        console.log(response)
+        if (response.status) {            
+            navigate('/')
         }else{
             alert(data.message)
         }

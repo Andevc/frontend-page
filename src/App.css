@@ -1,0 +1,5 @@
+:root{
+    background: linear-gradient(#00000044, transparent), url("/src/assets/bg.webp");
+    background-size: contain;
+    background-repeat: repeat;
+}

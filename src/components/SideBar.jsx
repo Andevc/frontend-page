@@ -2,14 +2,17 @@ import React from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoMdHome, IoMdLogOut, IoMdSettings } from "react-icons/io";
 import { AiFillProduct } from "react-icons/ai";
+import { MdAddBox } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useUser } from "../api/UserContext";
 export default function SideBar() {
-
+    const  {user} = useUser();
     const menus = [
         { name: "home", link: "/", icon: IoMdHome },
-        { name: "collection", link: "/collection", icon: AiFillProduct },
-        { name: "settings", link: "/settings", icon: IoMdSettings, margin: true },
+        { name: "collection", link: `/collection/${user}`, icon: AiFillProduct },
+        { name: "new product", link: `/collection/${user}/create-new`, icon: MdAddBox },
+        { name: "settings", link: `/settings/${user}`, icon: IoMdSettings, margin: true },
         { name: "logout", link: "/auth", icon: IoMdLogOut },
     ]
 

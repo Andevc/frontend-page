@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import "../styles/createProd.css"
+import "../styles/createProd.css";
+import createNewProduct from '../api/createProduct';
+import { useUser } from '../api/UserContext';
 
 function ProductRegistrationForm() {
+    const { user } = useUser();
     const [productName, setProductName] = useState('');
     const [productDescription, setProductDescription] = useState('');
     const [productImage, setProductImage] = useState(null);
     const [productPrice, setProductPrice] = useState('');
     const [imagePreview, setImagePreview] = useState(null);
     const product_id = ""
-    const handleNameChange = (e) => {
-        setProductName(e.target.value);
-    };
-
-    const handleDescriptionChange = (e) => {
-        setProductDescription(e.target.value);
-    };
+    const handleNameChange = (e) => setProductName(e.target.value);
+    const handleDescriptionChange = (e) => setProductDescription(e.target.value);
+    const handlePriceChange = (e) => setProductPrice(e.target.value);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -22,16 +21,8 @@ function ProductRegistrationForm() {
 
         // Mostrar la vista previa de la imagen
         const reader = new FileReader();
-        reader.onloadend = () => {
-            setImagePreview(reader.result);
-        };
-        if (file) {
-            reader.readAsDataURL(file);
-        }
-    };
-
-    const handlePriceChange = (e) => {
-        setProductPrice(e.target.value);
+        reader.onloadend = () => setImagePreview(reader.result);
+        if (file) reader.readAsDataURL(file);
     };
 
     const handleSubmit = async (e) => {
@@ -43,17 +34,10 @@ function ProductRegistrationForm() {
         formData.append('productImage', productImage);
         formData.append('productPrice', productPrice);
         formData.append('product_id', product_id);
+
+        console.log(formData)
         try {
-            const response = await fetch('http://127.0.0.1:5000/users/04b3e687ba/collection/create-product/', { // Reemplaza con el ID de usuario correcto
-                method: 'POST',
-                body: formData,
-            });
-
-            if (!response.ok) {
-                throw new Error('Error al enviar el formulario');
-            }
-
-            const result = await response.json();
+            const result = await createNewProduct(user, formData);
             alert('Producto registrado con éxito: ' + JSON.stringify(result));
 
             // Limpiar el estado después de la subida
@@ -74,20 +58,43 @@ function ProductRegistrationForm() {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Product Name:</label>
-                    <input type="text" value={productName} onChange={handleNameChange} className="form-input" required />
+                    <input
+                        type="text"
+                        value={productName}
+                        onChange={handleNameChange}
+                        className="form-input"
+                        required
+                    />
                 </div>
                 <div>
                     <label>Description:</label>
-                    <textarea value={productDescription} onChange={handleDescriptionChange} className="form-input" required />
+                    <textarea
+                        value={productDescription}
+                        onChange={handleDescriptionChange}
+                        className="form-input"
+                        required
+                    />
                 </div>
                 <div>
                     <label>Product Image:</label>
-                    <input type="file" onChange={handleImageChange} className="form-input" required accept="image/*" />
+                    <input
+                        type="file"
+                        onChange={handleImageChange}
+                        className="form-input"
+                        required
+                        accept="image/*"
+                    />
                     {imagePreview && <img src={imagePreview} alt="Preview" className="image-preview" />}
                 </div>
                 <div>
                     <label>Price:</label>
-                    <input type="number" value={productPrice} onChange={handlePriceChange} className="form-input" required />
+                    <input
+                        type="number"
+                        value={productPrice}
+                        onChange={handlePriceChange}
+                        className="form-input"
+                        required
+                    />
                 </div>
                 <button type="submit" className="form-button">Submit</button>
             </form>

@@ -17,8 +17,9 @@ const Dashboard = () => {
       <main>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/collection' element={<Collection />} />
-          <Route path='/settings' element={<Settings />}/>
+          <Route path='/collection/:id' element={<Collection />} />
+          <Route path='/collection/:id/create-new' element={<CrearProducto />} />
+          <Route path='/settings/:id' element={<Settings />}/>
         </Routes>
       </main>
       

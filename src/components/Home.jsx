@@ -29,7 +29,7 @@ export default function Home(){
     if (loading) return (<Loader />);
 
     return (
-        <section className="flex m-auto gap-8 flex-wrap justify-between mim-w-screen-xl border border-red-500">
+        <section className="flex m-auto gap-8 flex-wrap p-5 justify-between mim-w-screen-xl">
             {
                 products.map( (product) => (
                     <CardProduct key = {product.product_id}

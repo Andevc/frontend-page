@@ -1,11 +1,12 @@
 
-import axios from "./apiConfig"
-import { useUser } from "./UserContext"
+import api from "./apiConfig"
 
-const getCollectionUser = async () => {
-    const {user} = useUser()
+
+const getCollectionUser = async (user) => {
+
     try{
-        const response = await axios.get(`${user}/collection/`)
+
+        const response = await api.get(`/api/users/collection/${user}`)
         return response.data
     }catch (error){
         console.log("Error: ",error)

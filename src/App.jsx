@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard'
 import Collection from './components/Collection'
 function App() {
 
+  
+
   return (
     <BrowserRouter>
 
