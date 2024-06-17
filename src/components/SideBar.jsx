@@ -12,8 +12,8 @@ export default function SideBar() {
         { name: "home", link: "/", icon: IoMdHome },
         { name: "collection", link: `/collection/${user}`, icon: AiFillProduct },
         { name: "new product", link: `/collection/${user}/create-new`, icon: MdAddBox },
-        { name: "settings", link: `/settings/${user}`, icon: IoMdSettings, margin: true },
-        { name: "logout", link: "/auth", icon: IoMdLogOut },
+        // { name: "settings", link: `/settings/${user}`, icon: IoMdSettings, margin: true },
+        { name: "logout", link: "/login", icon: IoMdLogOut },
     ]
 
     const [open, setOpen] = useState(true);

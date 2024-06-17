@@ -9,7 +9,7 @@ const AuthLayout = ({title, children}) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>{title}</title>
         </head>
-        <body className="bg-gray-900  ">
+        <body className="bg-gray-900 w-1/2 ">
 
             {children}
         </body>

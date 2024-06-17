@@ -24,7 +24,7 @@ export default function RegisterPage() {
         
         console.log(response)
         if (response.status) {            
-            navigate('/')
+            navigate('/login')
         }else{
             alert(data.message)
         }

@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { UserProvider } from './api/UserContext'
-import Authentication from './pages/Authentication'
+import LoginPage from './pages/LoginPage'
 import Dashboard from './pages/Dashboard'
-import Collection from './components/Collection'
+import RegisterPage from './pages/RegisterPage'
 function App() {
 
   
@@ -13,9 +13,10 @@ function App() {
 
       <UserProvider>
         <Routes>
-          <Route path='/auth' element={<Authentication />} />
-
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/login' element={<LoginPage />} />
           <Route path='/*' element={<Dashboard />} />
+
         </Routes>
       </UserProvider>
 
