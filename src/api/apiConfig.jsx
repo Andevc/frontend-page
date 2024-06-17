@@ -3,7 +3,7 @@ import axios from "axios";
 // https://visualpantheon.up.railway.app/
 
 const axiosInstance = axios.create({
-    baseURL: "https://visualpantheon.up.railway.app/",
+    baseURL: "https://proyecto-web3-flask.onrender.com/",
     timeout: 10000,
     headers: {
         "Content-Type": "application/json"
