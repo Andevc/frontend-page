@@ -14,7 +14,7 @@ const Dashboard = () => {
       
       <SideBar />
       
-      <main>
+      <main className='border border-red-500 w-full p-10' >
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/collection/:id' element={<Collection />} />

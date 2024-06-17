@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import apiUrl from "../config/config";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/apiConfig"
 export default function RegisterPage() {
