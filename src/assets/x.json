@@ -1,0 +1,67 @@
+[
+    {
+        "image_url": "https://res.cloudinary.com/dn2zvlabb/image/upload/v1718341184/art_rvefjv.webp",
+        
+        "price": "235",
+        "product_id": "",
+        "product_name": "Trend 1",
+        "description" : "Imagen prueba db y todos los productos"
+
+    },
+    {
+        "image_url": "https://res.cloudinary.com/dn2zvlabb/image/upload/v1718428399/trending08_hatxbh.png",
+       
+        "price": "302",
+        "product_id": "",
+        "product_name": "Trend 2",
+        "description" : "Imagen prueba db y todos los productos"
+
+    },
+    {
+        "image_url": "https://res.cloudinary.com/dn2zvlabb/image/upload/v1718428399/trending02_czfbdg.png",
+      
+        "price": "141",
+        "product_id": "",
+        "product_name": "Trend 3",
+        "description" : "Imagen prueba db y todos los productos"
+
+    },
+    {
+        "image_url": "https://res.cloudinary.com/dn2zvlabb/image/upload/v1718428400/trending10_hgpq4g.png",
+        
+        "price": "225",
+        "product_id": "",
+        "product_name": "Trend 4",
+        "description" : "Imagen prueba db y todos los productos"
+
+    },
+    {
+        "image_url": "https://res.cloudinary.com/dn2zvlabb/image/upload/v1718428400/trending00_yykvvn.png",
+        
+        "price": "326",
+        "product_id": "",
+        "product_name": "Trend 5",
+        "description" : "Imagen prueba db y todos los productos"
+
+    },
+    {
+        "image_url": "https://res.cloudinary.com/dn2zvlabb/image/upload/v1718428400/trending07_czsmev.png",
+        
+        "price": "550",
+        "product_id": "",
+        "product_name": "Trend 6",
+        "description" : "Imagen prueba db y todos los productos"
+
+    },    
+    {
+        "image_url": "https://res.cloudinary.com/dn2zvlabb/image/upload/v1718427149/Cyber%20Warrior.jpg",
+        
+        "price": "150",
+        "product_id": "",
+        "product_name": "Trend 7",
+        "description" : "Imagen prueba db y todos los productos"
+
+    }
+
+]
+

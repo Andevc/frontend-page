@@ -1,0 +1,77 @@
+import React, {useState} from "react";
+import apiUrl from "../config/config";
+
+export default function RegisterPage() {
+
+    const [fullname, setFullname] = useState('');
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        console.log(fullname, username, password, email)
+
+        const response = await fetch(`${apiUrl}/auth/register/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "username": username,
+                "password": password,
+                "email": email,
+                "fullname": fullname,
+                "user_id" : ""
+            })
+        })
+        const data = await response.json()
+
+        if (response.ok) {
+
+        }else{
+            alert(data.message)
+        }
+
+
+    }
+
+    return (
+
+        <section className="h-full w-full auth wrap">
+            <h1 className="txt-title" >Register</h1>
+            <form action="" onSubmit={handleRegister}>
+                <input placeholder="Fullname"
+                    type="text"
+                    name="fullname"
+                    id="fullname"
+                    onChange={(e) => setFullname(e.target.value)}
+                    value={fullname} />
+                <input placeholder="Username"
+                    type="text"
+                    name="username"
+                    id="username"
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username} />
+                <input placeholder="Email"
+                    type="email"
+                    name="email"
+                    id="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email} />
+                <input placeholder="Password"
+                    type="password"
+                    name="password"
+                    id="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password} />
+
+                <input type="submit" className="btn" value="Create Acount" />
+
+            </form>
+        </section>
+
+
+    )
+
+}
